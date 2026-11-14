@@ -1,0 +1,41 @@
+<h1>Student Registration System</h1>
+
+<h2>Register Student</h2>
+
+<form (ngSubmit)="addStudent()">
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="name"
+    placeholder="Enter student name"
+  />
+
+  <input
+    type="text"
+    name="department"
+    [(ngModel)]="department"
+    placeholder="Enter department"
+  />
+
+  <button type="submit">Add Student</button>
+</form>
+
+<p *ngIf="loading">Loading students...</p>
+<p>{{ message }}</p>
+<p>{{ error }}</p>
+
+<h2>Student Records</h2>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Department</th>
+  </tr>
+
+  <tr *ngFor="let student of students">
+    <td>{{ student.id }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.department }}</td>
+  </tr>
+</table>
